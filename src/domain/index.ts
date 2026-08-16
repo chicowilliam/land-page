@@ -15,6 +15,7 @@ export type {
   LeadCaptureResult,
   LeadFormField,
   LeadId,
+  Maker,
   Objection,
   ObjectionId,
   Offer,

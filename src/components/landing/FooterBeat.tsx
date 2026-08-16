@@ -1,4 +1,5 @@
 import { LeadForm } from "@/components/landing/LeadForm";
+import { Section } from "@/components/landing/Section";
 import { WhatsAppCta } from "@/components/landing/WhatsAppCta";
 import { PRIMARY_CTA_LABEL, type Offer, type WhatsAppChannel } from "@/domain";
 
@@ -9,29 +10,31 @@ type FooterBeatProps = {
 
 export function FooterBeat({ offer, channel }: FooterBeatProps) {
   return (
-    <footer
+    <Section
+      as="footer"
       id="pedido"
-      className="scroll-mt-6 border-t border-border px-4 py-14 sm:px-6"
+      labelledBy="pedido-heading"
+      className="scroll-mt-8"
     >
-      <div className="mx-auto flex max-w-2xl flex-col gap-8">
-        <div className="flex flex-col gap-3">
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.5rem,4vw,2rem)] font-medium">
-            {PRIMARY_CTA_LABEL}
-          </h2>
-          <p className="max-w-[42ch] leading-relaxed text-muted-foreground">
-            Caminho mais curto. O formulário é só se você preferir deixar nome e
-            número primeiro.
-          </p>
-          <WhatsAppCta channel={channel} className="w-full sm:w-auto" />
-        </div>
+      <p className="eyebrow">Conversa</p>
+      <h2
+        id="pedido-heading"
+        className="max-w-[14ch] text-[clamp(1.75rem,4vw,2.6rem)] font-medium"
+      >
+        {PRIMARY_CTA_LABEL}
+      </h2>
+      <p className="max-w-[42ch] leading-relaxed text-muted-foreground">
+        Caminho mais curto até o {offer.maker.name}. O formulário é só se você
+        preferir deixar nome e número primeiro.
+      </p>
+      <WhatsAppCta channel={channel} className="w-full sm:w-auto" />
 
-        <div className="h-px bg-border" role="separator" />
+      <div className="hairline my-4" role="separator" />
 
-        <div className="flex flex-col gap-4">
-          <h3 className="text-lg font-medium">Enviar pedido de conversa</h3>
-          <LeadForm offerId={offer.id} channel={channel} />
-        </div>
+      <div className="flex flex-col gap-5">
+        <h3 className="text-xl font-medium">Enviar pedido de conversa</h3>
+        <LeadForm offerId={offer.id} channel={channel} />
       </div>
-    </footer>
+    </Section>
   );
 }

@@ -79,3 +79,8 @@ _Avoid_: Urgência, Escassez, Vaga (como eufemismo solto)
 **Cliente**:
 Pessoa ou negócio que já contratou. Aparece em Case e Depoimento. Não é quem está lendo a página.
 _Avoid_: Usuário, Parceiro, Conta
+
+**Maker**:
+Quem guia o Visitante nesta página. Tem nome e retrato. Não é o herói da história; o Visitante é.
+_Avoid_: Autor, Influencer, Marca pessoal (como objeto comercial; a Oferta continua sendo o que se vende)
+

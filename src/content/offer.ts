@@ -13,6 +13,13 @@ import {
  */
 export const offer: Offer = {
   id: asOfferId("sites-que-vendem"),
+  maker: {
+    name: "Vinicius William",
+    photo: {
+      src: "/vinicius-william.png",
+      alt: "Vinicius William, camisa branca e gravata preta",
+    },
+  },
   promise: {
     result: "Sites que vendem mais, não só bonitos.",
     howOrForWhom:
@@ -23,10 +30,9 @@ export const offer: Offer = {
     feltPain: "O site existe, mas ninguém chama. O Instagram trabalha; a página não.",
   },
   visual: {
-    type: "MOCKUP",
-    src: "/cases/cafe-com-letras-mockup.webp",
-    alt: "Mockup do site Café com Letras aberto no celular, com o botão de WhatsApp visível",
-    caseId: asCaseId("cafe-com-letras"),
+    type: "PHOTO",
+    src: "/vinicius-william.png",
+    alt: "Vinicius William, camisa branca e gravata preta",
   },
   pain: {
     problem:
@@ -143,9 +149,9 @@ export const offer: Offer = {
       {
         type: "WHATSAPP",
         role: "PRIMARY",
-        phoneE164: "+5500000000000",
+        phoneE164: "+5531994649759",
         prefilledMessage:
-          "Oi, vi o site. Quero conversar sobre uma página que gere WhatsApp para o meu negócio.",
+          "Oi, Vinicius. Vi o site. Quero conversar sobre uma página que gere WhatsApp para o meu negócio.",
       },
       {
         type: "FORM",

@@ -73,7 +73,7 @@ export function LeadForm({ offerId, channel }: LeadFormProps) {
       aria-describedby={failure ? "lead-failure" : undefined}
     >
       <div className="flex flex-col gap-1.5" data-invalid={Boolean(errors.name)}>
-        <label htmlFor="lead-name" className="text-sm font-medium">
+        <label htmlFor="lead-name" className="text-[0.7rem] font-medium tracking-[0.18em] uppercase text-muted-foreground">
           Nome
         </label>
         <input
@@ -88,7 +88,9 @@ export function LeadForm({ offerId, channel }: LeadFormProps) {
           aria-describedby={errors.name ? "lead-name-error" : undefined}
           placeholder="Ana Souza…"
           className={cn(
-            "min-h-11 rounded-md border border-border bg-card px-3 text-base text-foreground",
+            "min-h-12 rounded-sm border border-ink/15 bg-card px-3.5 text-base text-foreground",
+            "transition-[border-color,box-shadow] duration-[var(--hover-dur)] ease-[var(--enter-ease)]",
+            "focus:border-stamp focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-stamp)_18%,transparent)] focus:outline-none",
             errors.name && "border-destructive",
           )}
         />
@@ -103,7 +105,7 @@ export function LeadForm({ offerId, channel }: LeadFormProps) {
         className="flex flex-col gap-1.5"
         data-invalid={Boolean(errors.whatsapp)}
       >
-        <label htmlFor="lead-whatsapp" className="text-sm font-medium">
+        <label htmlFor="lead-whatsapp" className="text-[0.7rem] font-medium tracking-[0.18em] uppercase text-muted-foreground">
           WhatsApp
         </label>
         <input
@@ -119,7 +121,9 @@ export function LeadForm({ offerId, channel }: LeadFormProps) {
           aria-describedby={errors.whatsapp ? "lead-whatsapp-error" : undefined}
           placeholder="11999998888…"
           className={cn(
-            "min-h-11 rounded-md border border-border bg-card px-3 text-base text-foreground",
+            "min-h-12 rounded-sm border border-ink/15 bg-card px-3.5 text-base text-foreground",
+            "transition-[border-color,box-shadow] duration-[var(--hover-dur)] ease-[var(--enter-ease)]",
+            "focus:border-stamp focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-stamp)_18%,transparent)] focus:outline-none",
             errors.whatsapp && "border-destructive",
           )}
         />
@@ -144,7 +148,7 @@ export function LeadForm({ offerId, channel }: LeadFormProps) {
         type="submit"
         disabled={busy || done}
         aria-busy={busy}
-        className="inline-flex min-h-11 items-center justify-center rounded-md border border-border bg-secondary px-5 py-3 text-base font-semibold text-secondary-foreground transition-transform duration-[var(--press-dur)] ease-[var(--enter-ease)] hover:bg-accent active:scale-[0.98] disabled:opacity-70"
+        className="inline-flex min-h-12 items-center justify-center rounded-sm border border-ink/80 bg-transparent px-7 py-3.5 text-[0.95rem] font-medium tracking-wide text-ink transition-[transform,background-color,color] duration-[var(--press-dur)] ease-[var(--enter-ease)] hover:bg-ink hover:text-paper active:scale-[0.98] disabled:opacity-70"
       >
         {done ? FORM_SUCCESS_LABEL : SECONDARY_CTA_LABEL}
       </button>

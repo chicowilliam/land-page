@@ -1,3 +1,4 @@
+import { Section } from "@/components/landing/Section";
 import type { Guarantee } from "@/domain";
 
 type GuaranteeBeatProps = {
@@ -6,22 +7,19 @@ type GuaranteeBeatProps = {
 
 export function GuaranteeBeat({ guarantee }: GuaranteeBeatProps) {
   return (
-    <section
-      className="beat border-t border-border px-4 py-14 sm:px-6"
-      aria-labelledby="garantia-heading"
-    >
-      <div className="mx-auto flex max-w-2xl flex-col gap-4">
-        <p className="text-sm font-semibold tracking-wide text-stamp">Garantia</p>
+    <Section labelledBy="garantia-heading">
+      <p className="eyebrow">Garantia</p>
+      <div className="border-l-2 border-gilt pl-6 sm:pl-8">
         <h2
           id="garantia-heading"
-          className="font-[family-name:var(--font-display)] text-[clamp(1.5rem,4vw,2rem)] font-medium leading-snug"
+          className="max-w-[20ch] text-[clamp(1.75rem,4vw,2.6rem)] font-medium"
         >
           {guarantee.commitment}
         </h2>
-        <p className="max-w-[65ch] leading-relaxed text-foreground">
+        <p className="mt-6 max-w-[58ch] leading-relaxed text-foreground/90">
           {guarantee.covers}
         </p>
       </div>
-    </section>
+    </Section>
   );
 }

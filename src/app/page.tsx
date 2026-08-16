@@ -9,6 +9,7 @@ import { ObjectionsBeat } from "@/components/landing/ObjectionsBeat";
 import { PainBeat } from "@/components/landing/PainBeat";
 import { ProcessBeat } from "@/components/landing/ProcessBeat";
 import { ProofBeat } from "@/components/landing/ProofBeat";
+import { Reveal } from "@/components/landing/Reveal";
 import { offer } from "@/content/offer";
 import { primaryWhatsApp } from "@/domain";
 
@@ -18,16 +19,36 @@ export default function HomePage() {
   return (
     <>
       <Hero offer={offer} channel={channel} />
-      <PainBeat pain={offer.pain} />
-      <ProofBeat proofs={offer.proofs} />
-      <CasesBeat cases={offer.cases} channel={channel} />
-      <BenefitsBeat benefits={offer.benefits} />
-      <ProcessBeat steps={offer.steps} />
-      <ObjectionsBeat objections={offer.objections} />
-      <GuaranteeBeat guarantee={offer.guarantee} />
-      <CapacityBeat capacity={offer.capacity} />
-      <CloseBeat offer={offer} channel={channel} />
-      <FooterBeat offer={offer} channel={channel} />
+      <Reveal>
+        <PainBeat pain={offer.pain} />
+      </Reveal>
+      <Reveal>
+        <ProofBeat proofs={offer.proofs} />
+      </Reveal>
+      <Reveal>
+        <CasesBeat cases={offer.cases} channel={channel} />
+      </Reveal>
+      <Reveal>
+        <BenefitsBeat benefits={offer.benefits} />
+      </Reveal>
+      <Reveal>
+        <ProcessBeat steps={offer.steps} />
+      </Reveal>
+      <Reveal>
+        <ObjectionsBeat objections={offer.objections} />
+      </Reveal>
+      <Reveal>
+        <GuaranteeBeat guarantee={offer.guarantee} />
+      </Reveal>
+      <Reveal>
+        <CapacityBeat capacity={offer.capacity} />
+      </Reveal>
+      <Reveal>
+        <CloseBeat offer={offer} channel={channel} />
+      </Reveal>
+      <Reveal>
+        <FooterBeat offer={offer} channel={channel} />
+      </Reveal>
     </>
   );
 }

@@ -12,6 +12,7 @@ export type BenefitId = string & { readonly __brand: "BenefitId" };
 
 export type Offer = {
   id: OfferId;
+  maker: Maker;
   promise: PromiseCopy;
   audience: Audience;
   visual: HeroVisual;
@@ -24,6 +25,11 @@ export type Offer = {
   guarantee: Guarantee;
   capacity: Capacity;
   contact: Contact;
+};
+
+export type Maker = {
+  name: string;
+  photo: { src: string; alt: string };
 };
 
 export type PromiseCopy = {

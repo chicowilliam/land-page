@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
-import { Newsreader, Source_Sans_3 } from "next/font/google";
+import { Fraunces, IBM_Plex_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import { offer } from "@/content/offer";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  variable: "--font-newsreader",
+  variable: "--font-fraunces",
+  axes: ["SOFT", "WONK"],
+  style: ["normal", "italic"],
 });
 
-const sourceSans = Source_Sans_3({
+const plex = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-source-sans",
+  variable: "--font-plex",
 });
 
 export const metadata: Metadata = {
-  title: offer.promise.result.replace(/\.$/, ""),
+  title: `${offer.promise.result.replace(/\.$/, "")} · ${offer.maker.name}`,
   description: offer.promise.howOrForWhom,
   robots: { index: true, follow: true },
 };
@@ -30,12 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${newsreader.variable} ${sourceSans.variable}`}
+      className={`${fraunces.variable} ${plex.variable}`}
     >
-      <body>
+      <body className="font-sans">
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
         >
           Ir para o conteúdo
         </a>
