@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-source-sans), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-newsreader), "Newsreader", ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+
+  --color-background: oklch(96.4% 0.014 85);
+  --color-foreground: oklch(22% 0.028 48);
+  --color-primary: oklch(47% 0.17 32);
+  --color-primary-foreground: oklch(97% 0.01 85);
+  --color-secondary: oklch(92.5% 0.02 82);
+  --color-secondary-foreground: oklch(22% 0.028 48);
+  --color-muted: oklch(91% 0.018 82);
+  --color-muted-foreground: oklch(44% 0.03 50);
+  --color-accent: oklch(90% 0.03 80);
+  --color-accent-foreground: oklch(22% 0.028 48);
+  --color-destructive: oklch(48% 0.18 28);
+  --color-destructive-foreground: oklch(97% 0.01 85);
+  --color-border: oklch(86% 0.022 80);
+  --color-ring: oklch(47% 0.17 32);
+  --color-card: oklch(98.2% 0.008 85);
+  --color-card-foreground: oklch(22% 0.028 48);
+  --color-ink: oklch(18% 0.03 48);
+  --color-paper: oklch(96.4% 0.014 85);
+  --color-stamp: oklch(47% 0.17 32);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.4rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --animate-press: press 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @keyframes press {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.98);
+    }
+  }
+}
+
+:root {
+  --enter-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --move-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --press-dur: 140ms;
+  --hover-dur: 200ms;
+  --panel-dur: 220ms;
+  --text-swap-dur: 150ms;
+  --text-swap-y: 4px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    background-color: var(--color-background);
+    -webkit-tap-highlight-color: color-mix(in oklab, var(--color-stamp) 18%, transparent);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility beat {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 640px;
+}

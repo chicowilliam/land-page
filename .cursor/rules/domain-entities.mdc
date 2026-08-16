@@ -1,0 +1,63 @@
+---
+description: Arquitetura de entidades de domínio — separação entre modelo Prisma, entidade de domínio e DTO, com regras de negócio isoladas
+globs: ["**/domain/**", "**/entities/**", "**/*.entity.ts", "prisma/schema.prisma"]
+alwaysApply: false
+---
+
+# Arquitetura de Entidade de Domínio
+
+## Separação de camadas (não misturar)
+- **Model Prisma** (`prisma/schema.prisma`): representa a tabela, só estrutura de dados
+- **Entidade de domínio** (`src/domain/entities/*.ts`): classe/tipo com as regras de negócio e invariantes — não é o mesmo objeto que o Prisma retorna
+- **DTO** (`src/domain/dto/*.ts` ou `*.schema.ts`): formato de entrada/saída da API, validado com Zod
+
+Nunca expor o tipo gerado pelo Prisma diretamente na API — sempre mapear para DTO.
+
+## Estrutura de pastas sugerida
+```
+src/
+  domain/
+    entities/       # regras de negócio, factory de criação com validação
+    repositories/    # interfaces (contratos), não implementação
+    dto/             # schemas Zod de entrada/saída
+  infra/
+    prisma/          # implementação concreta dos repositórios
+  api/ ou routes/     # camada HTTP, chama serviços, nunca acessa Prisma direto
+```
+
+## Entidade: padrão de criação
+Toda entidade nasce por um factory method que valida invariantes na criação, nunca por `new` direto com dados crus:
+
+```ts
+// src/domain/entities/cliente.ts
+export class Cliente {
+  private constructor(
+    public readonly id: string,
+    public readonly nome: string,
+    public readonly email: string,
+  ) {}
+
+  static criar(input: { nome: string; email: string }): Cliente {
+    if (!input.nome.trim()) throw new DomainError("Nome é obrigatório");
+    if (!input.email.includes("@")) throw new DomainError("Email inválido");
+    return new Cliente(crypto.randomUUID(), input.nome, input.email);
+  }
+}
+```
+
+## Repositório: interface primeiro
+Definir a interface no domínio, implementar no `infra/`:
+
+```ts
+// src/domain/repositories/cliente-repository.ts
+export interface ClienteRepository {
+  salvar(cliente: Cliente): Promise<void>;
+  buscarPorId(id: string): Promise<Cliente | null>;
+}
+```
+A implementação com Prisma fica em `infra/prisma/cliente-repository.ts` e converte entre model Prisma ↔ entidade de domínio.
+
+## Regras
+- Regra de negócio nunca vive no controller/rota — vive na entidade ou em um serviço de domínio
+- Value objects para campos com validação própria (CPF, dinheiro, e-mail) em vez de `string`/`number` soltos, quando o projeto justificar a complexidade
+- Nomear em português quando o domínio do negócio é em português (ex: `Cliente`, `Pedido`) — não forçar tradução para inglês em projetos de cliente nacional
