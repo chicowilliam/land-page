@@ -10,22 +10,26 @@ function ProjectEntry({ project, index }: { project: Project; index: string }) {
   return (
     <article
       aria-label={project.name}
-      className="flex flex-col gap-3 border-t border-border py-10"
+      className="grid grid-cols-1 gap-4 border-t border-border py-10 lg:grid-cols-12 lg:items-start lg:gap-16 lg:py-14"
     >
-      <span className="readout" aria-hidden="true">
-        {index}
-      </span>
-      <h3 className="text-[1.375rem] font-semibold tracking-tight">
-        {project.name}
-      </h3>
-      <p className="readout">{project.tag}</p>
-      <p className="max-w-[54ch] leading-relaxed text-muted-foreground">
-        {project.description}
-      </p>
-      <p className="readout mt-2 flex items-center gap-2.5">
-        <span className="status-dot shrink-0" aria-hidden="true" />
-        em desenvolvimento — sem link público por enquanto
-      </p>
+      <div className="flex flex-col gap-3 lg:col-span-5">
+        <span className="readout" aria-hidden="true">
+          {index}
+        </span>
+        <h3 className="text-[1.375rem] font-semibold tracking-tight lg:text-[1.6rem]">
+          {project.name}
+        </h3>
+        <p className="readout">{project.tag}</p>
+      </div>
+      <div className="flex flex-col gap-4 lg:col-span-6 lg:col-start-7">
+        <p className="max-w-[54ch] leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+        <p className="readout flex items-center gap-2.5">
+          <span className="status-dot shrink-0" aria-hidden="true" />
+          em desenvolvimento — sem link público por enquanto
+        </p>
+      </div>
     </article>
   );
 }
@@ -37,16 +41,14 @@ export function Projects({ content }: ProjectsProps) {
       aria-labelledby="projetos-heading"
       className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
+      <div className="shell section-y flex flex-col gap-10 lg:gap-14">
         <SectionHead
           index="01"
           label="projetos selecionados"
           title={content.title}
           headingId="projetos-heading"
+          aside={content.intro}
         />
-        <p className="max-w-[50ch] leading-relaxed text-muted-foreground">
-          {content.intro}
-        </p>
 
         <div className="flex flex-col">
           {content.items.map((project, index) => (

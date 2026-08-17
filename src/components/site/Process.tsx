@@ -12,7 +12,7 @@ export function Process({ content }: ProcessProps) {
       aria-labelledby="processo-heading"
       className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
+      <div className="shell section-y flex flex-col gap-10 lg:gap-16">
         <SectionHead
           index="03"
           label="processo"
@@ -24,22 +24,22 @@ export function Process({ content }: ProcessProps) {
           {content.steps.map((step) => (
             <li
               key={step.order}
-              className="flex gap-5 border-b border-border py-5 last:border-b-0"
+              className="grid grid-cols-1 gap-2 border-b border-border py-6 last:border-b-0 lg:grid-cols-12 lg:items-baseline lg:gap-10 lg:py-8"
             >
-              <span className="readout pt-1" aria-hidden="true">
+              <span className="readout lg:col-span-1" aria-hidden="true">
                 {String(step.order).padStart(2, "0")}
               </span>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-[1.0625rem] font-medium">{step.name}</h3>
-                <p className="max-w-[54ch] text-[0.9375rem] leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
+              <h3 className="text-[1.0625rem] font-medium lg:col-span-4 lg:text-[1.125rem]">
+                {step.name}
+              </h3>
+              <p className="max-w-[54ch] text-[0.9375rem] leading-relaxed text-muted-foreground lg:col-span-7">
+                {step.description}
+              </p>
             </li>
           ))}
         </ol>
 
-        <p className="max-w-[58ch] border-l-2 border-primary pl-4 text-[0.9375rem] leading-relaxed text-muted-foreground">
+        <p className="max-w-[58ch] border-l-2 border-primary pl-4 text-[0.9375rem] leading-relaxed text-muted-foreground lg:pl-5">
           {content.note}
         </p>
       </div>

@@ -12,22 +12,23 @@ export function Faq({ items }: FaqProps) {
       aria-labelledby="perguntas-heading"
       className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
+      <div className="shell section-y grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
         <SectionHead
           index="05"
           label="perguntas frequentes"
           title="Antes de chamar, talvez você queira saber."
           headingId="perguntas-heading"
+          className="lg:col-span-5"
         />
 
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:col-span-6 lg:col-start-7">
           {items.map((item) => (
             <details
               key={item.id}
               name="faq"
               className="group border-b border-border last:border-b-0"
             >
-              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[1.0625rem] font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[1.0625rem] font-medium marker:content-none [&::-webkit-details-marker]:hidden">
                 <span>{item.question}</span>
                 <span
                   aria-hidden="true"

@@ -89,12 +89,29 @@
   }
 }
 
-/* eixo único da página (v2) */
+/* eixo da página: estreito no mobile, amplo no desktop (ritmo Linear) */
 @utility shell {
   margin-inline: auto;
   width: 100%;
-  max-width: 46rem;
+  max-width: 42rem;
   padding-inline: 1.5rem;
+
+  @media (width >= 64rem) {
+    max-width: 72rem;
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 4rem;
+
+  @media (width >= 40rem) {
+    padding-block: 5.5rem;
+  }
+
+  @media (width >= 64rem) {
+    padding-block: 7.5rem;
+  }
 }
 
 @utility beat {
@@ -134,22 +151,113 @@
   }
 }
 
-.reveal {
+.site-plan {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  color: var(--color-border);
+  opacity: 0.7;
+  mask-image: radial-gradient(ellipse 90% 80% at 88% 12%, #000 10%, transparent 72%);
+}
+
+.plan-path {
+  fill: none;
+  stroke-dasharray: 10 12;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plan-path {
+    animation: plan-flow 22s linear infinite;
+  }
+
+  @keyframes plan-flow {
+    to {
+      stroke-dashoffset: -220;
+    }
+  }
+}
+
+.portrait-card {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+  box-shadow: 0 18px 40px color-mix(in oklab, var(--color-foreground) 6%, transparent);
+  transition:
+    transform var(--hover-dur) var(--enter-ease),
+    box-shadow var(--hover-dur) var(--enter-ease);
+}
+
+.portrait-card:hover,
+.portrait-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 56px color-mix(in oklab, var(--color-foreground) 10%, transparent);
+}
+
+.portrait-card:active {
+  transform: translateY(-2px) scale(0.985);
+}
+
+@media (hover: none) {
+  .portrait-card:hover {
+    transform: none;
+    box-shadow: 0 18px 40px color-mix(in oklab, var(--color-foreground) 6%, transparent);
+  }
+
+  .portrait-card:hover .portrait-photo {
+    transform: none;
+  }
+}
+
+.portrait-photo {
+  transition: transform 500ms var(--enter-ease);
+}
+
+.portrait-card:hover .portrait-photo,
+.portrait-card:focus-visible .portrait-photo {
+  transform: scale(1.045);
+}
+
+.portrait-modal {
+  margin: auto;
+  opacity: 0;
+  transform: translateY(10px) scale(0.94);
+  transition:
+    opacity var(--panel-dur) var(--enter-ease),
+    transform var(--panel-dur) var(--enter-ease),
+    overlay var(--panel-dur) var(--enter-ease);
+}
+
+.portrait-modal[open] {
   opacity: 1;
   transform: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
+@starting-style {
+  .portrait-modal[open] {
     opacity: 0;
-    transform: translateY(14px);
-    transition:
-      opacity 500ms var(--enter-ease),
-      transform 500ms var(--enter-ease);
+    transform: translateY(10px) scale(0.94);
   }
+}
 
-  .reveal[data-shown] {
-    opacity: 1;
-    transform: translateY(0);
+.portrait-modal::backdrop {
+  background: color-mix(in oklab, var(--color-foreground) 42%, transparent);
+  opacity: 0;
+  transition: opacity var(--panel-dur) var(--enter-ease);
+}
+
+.portrait-modal[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .portrait-modal[open]::backdrop {
+    opacity: 0;
   }
 }

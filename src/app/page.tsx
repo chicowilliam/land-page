@@ -1,4 +1,5 @@
 import { About } from "@/components/site/About";
+import { BackgroundPlan } from "@/components/site/BackgroundPlan";
 import { Contact } from "@/components/site/Contact";
 import { Faq } from "@/components/site/Faq";
 import { Footer } from "@/components/site/Footer";
@@ -13,8 +14,9 @@ import { site } from "@/content/site";
 export default function HomePage() {
   return (
     <>
+      <BackgroundPlan />
       <Header name={site.maker.name} channel={site.whatsapp} />
-      <main id="conteudo">
+      <main id="conteudo" className="relative z-10">
         <Hero content={site} />
         <Reveal>
           <Projects content={site.projects} />
@@ -26,7 +28,11 @@ export default function HomePage() {
           <Process content={site.process} />
         </Reveal>
         <Reveal>
-          <About content={site.about} maker={site.maker} />
+          <About
+            content={site.about}
+            maker={site.maker}
+            channel={site.whatsapp}
+          />
         </Reveal>
         <Reveal>
           <Faq items={site.faq} />

@@ -13,21 +13,23 @@ export function Contact({ content, channel }: ContactProps) {
       aria-labelledby="contato-heading"
       className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-7 py-20 sm:py-28">
-        <p className="readout">06 — contato</p>
+      <div className="shell section-y grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-16">
+        <div className="flex flex-col gap-6 lg:col-span-7">
+          <p className="readout">06 — contato</p>
 
-        <h2
-          id="contato-heading"
-          className="max-w-[18ch] text-[clamp(2rem,5vw,3rem)] tracking-[-0.03em]"
-        >
-          {content.title}
-        </h2>
+          <h2
+            id="contato-heading"
+            className="max-w-[18ch] text-[clamp(2rem,4.4vw,3.35rem)] tracking-[-0.03em]"
+          >
+            {content.title}
+          </h2>
 
-        <p className="max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
-          {content.text}
-        </p>
+          <p className="max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
+            {content.text}
+          </p>
+        </div>
 
-        <div>
+        <div className="lg:col-span-4 lg:col-start-9">
           <ActionLink href={whatsappHref(channel)} external>
             {content.ctaLabel}
           </ActionLink>
