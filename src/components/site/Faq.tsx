@@ -12,7 +12,7 @@ export function Faq({ items }: FaqProps) {
       aria-labelledby="perguntas-heading"
       className="scroll-mt-20 border-b-2 border-ink"
     >
-      <div className="shell grid grid-cols-1 gap-10 py-16 sm:py-20 lg:grid-cols-12">
+      <div className="shell grid grid-cols-1 gap-10 py-20 sm:py-28 lg:grid-cols-12">
         <SectionHead
           index="05"
           label="Perguntas frequentes"

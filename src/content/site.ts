@@ -113,7 +113,7 @@ export const site: SiteContent = {
   about: {
     title: "Programação com atenção à experiência de quem vai usar.",
     paragraphs: [
-      "Sou Vinicius William, desenvolvedor de sites e sistemas e estudante de Engenharia de Software na UFMG. Trabalho com tecnologias como React, TypeScript e Node.js para construir soluções web sob medida.",
+      "Sou Vinicius William, desenvolvedor de sites e sistemas e estudante de Engenharia de Software. Trabalho com tecnologias como React, TypeScript e Node.js para construir soluções web sob medida.",
       "Atualmente, participo do desenvolvimento de projetos digitais ligados ao ICC, incluindo Café com Letras, Clube de Jazz e Clube OTOTOI.",
       "Meu trabalho não começa escolhendo um template. Primeiro procuro entender o que a pessoa precisa encontrar, fazer ou decidir dentro do site. A tecnologia entra para tornar esse caminho possível.",
     ],

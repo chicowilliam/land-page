@@ -12,7 +12,7 @@ export function Services({ content }: ServicesProps) {
       aria-labelledby="servicos-heading"
       className="scroll-mt-20 border-b-2 border-ink"
     >
-      <div className="shell flex flex-col gap-12 py-16 sm:py-20">
+      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
         <SectionHead
           index="02"
           label="O que eu desenvolvo"
@@ -21,7 +21,7 @@ export function Services({ content }: ServicesProps) {
         />
 
         {/* Matriz editorial: células com bordas compartilhadas, sem cards soltos */}
-        <ul className="hard-shadow grid grid-cols-1 border-2 border-ink bg-paper sm:grid-cols-2">
+        <ul className="grid grid-cols-1 border-2 border-ink bg-paper sm:grid-cols-2">
           {content.items.map((service, index) => (
             <li
               key={service.id}

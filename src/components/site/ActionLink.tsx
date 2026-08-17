@@ -4,7 +4,8 @@ import { cn } from "@/lib/cn";
 type ActionLinkProps = {
   href: string;
   children: ReactNode;
-  variant?: "cobalt" | "outline";
+  variant?: "solid" | "outline";
+  arrow?: "→" | "↓";
   external?: boolean;
   className?: string;
 };
@@ -12,7 +13,8 @@ type ActionLinkProps = {
 export function ActionLink({
   href,
   children,
-  variant = "cobalt",
+  variant = "solid",
+  arrow = "→",
   external = false,
   className,
 }: ActionLinkProps) {
@@ -21,12 +23,23 @@ export function ActionLink({
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
-        "btn-press tag-mono hard-shadow inline-flex min-h-11 items-center justify-center gap-3 border-2 border-ink px-6 py-3 text-[0.78rem] no-underline",
-        variant === "cobalt" ? "bg-cobalt text-paper" : "bg-paper text-ink",
+        "group/cta tag-mono inline-flex min-h-12 items-center justify-center gap-3 px-7 py-3.5 text-[0.78rem] no-underline transition-colors duration-[var(--hover-dur)] ease-[var(--ease-out)]",
+        variant === "solid"
+          ? "bg-ink text-paper hover:bg-cobalt"
+          : "border-2 border-ink bg-transparent text-ink hover:bg-ink hover:text-paper",
         className,
       )}
     >
       {children}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "transition-transform duration-[var(--hover-dur)] ease-[var(--ease-out)]",
+          arrow === "→" ? "group-hover/cta:translate-x-1" : "group-hover/cta:translate-y-0.5",
+        )}
+      >
+        {arrow}
+      </span>
     </a>
   );
 }

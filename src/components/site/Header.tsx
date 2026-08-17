@@ -25,12 +25,12 @@ export function Header({ name, channel }: HeaderProps) {
         </a>
 
         <nav aria-label="Seções da página" className="hidden md:block">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-8">
             {NAV_ITEMS.map((item, index) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="tag-mono inline-flex min-h-11 items-center gap-1.5 text-ink no-underline transition-colors duration-[var(--hover-dur)] hover:text-cobalt"
+                  className="link-underline tag-mono inline-flex min-h-11 items-center gap-1.5 text-ink no-underline"
                 >
                   <span aria-hidden="true" className="text-cobalt">
                     {String(index + 1).padStart(2, "0")}
@@ -46,8 +46,7 @@ export function Header({ name, channel }: HeaderProps) {
           href={whatsappHref(channel)}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-press tag-mono inline-flex min-h-11 items-center border-2 border-ink bg-paper px-4 text-ink no-underline hover:bg-cobalt hover:text-paper"
-          style={{ boxShadow: "3px 3px 0 0 var(--color-ink)" }}
+          className="tag-mono inline-flex min-h-11 items-center bg-ink px-5 text-paper no-underline transition-colors duration-[var(--hover-dur)] ease-[var(--ease-out)] hover:bg-cobalt"
         >
           Conversar
         </a>

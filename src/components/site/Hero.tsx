@@ -1,9 +1,4 @@
 import { ActionLink } from "@/components/site/ActionLink";
-import { BrowserFrame } from "@/components/site/BrowserFrame";
-import {
-  CafePreview,
-  JazzPreview,
-} from "@/components/site/ProjectPreview";
 import { whatsappHref, type SiteContent } from "@/domain";
 
 type HeroProps = {
@@ -11,7 +6,7 @@ type HeroProps = {
 };
 
 export function Hero({ content }: HeroProps) {
-  const { hero, whatsapp } = content;
+  const { hero, whatsapp, projects } = content;
 
   return (
     <section
@@ -19,22 +14,21 @@ export function Hero({ content }: HeroProps) {
       aria-labelledby="hero-heading"
       className="border-b-2 border-ink"
     >
-      <div className="shell grid grid-cols-1 gap-12 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-20">
-        <div className="flex max-w-[38rem] flex-col items-start gap-7 lg:col-span-7">
-          <p className="tag-mono border border-ink bg-sand px-3 py-2 text-ink">
-            {hero.label}
-          </p>
+      <div className="shell grid grid-cols-1 gap-14 py-16 sm:py-20 lg:grid-cols-12 lg:items-end lg:gap-10 lg:py-28">
+        <div className="flex flex-col items-start gap-8 lg:col-span-8">
+          <p className="tag-mono text-ink-soft">{hero.label}</p>
 
-          <h1 id="hero-heading" className="text-hero">
+          <h1 id="hero-heading" className="max-w-[17ch] text-hero">
             {hero.title}
           </h1>
 
-          <p className="max-w-[52ch] text-ink-soft">{hero.text}</p>
+          <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-ink-soft">
+            {hero.text}
+          </p>
 
-          <div className="flex w-full flex-col gap-4 pt-1 sm:w-auto sm:flex-row sm:items-center">
-            <ActionLink href="#projetos" variant="cobalt">
+          <div className="flex w-full flex-col gap-4 pt-2 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+            <ActionLink href="#projetos" arrow="↓">
               Ver projetos
-              <span aria-hidden="true">↓</span>
             </ActionLink>
             <ActionLink
               href={whatsappHref(whatsapp)}
@@ -48,34 +42,41 @@ export function Hero({ content }: HeroProps) {
           <p className="index-num text-ink-soft">{hero.aside}</p>
         </div>
 
-        <div className="relative lg:col-span-5">
-          <span
-            aria-hidden="true"
-            className="index-num absolute -top-6 right-0 hidden text-ink-soft/70 lg:block"
-          >
-            + preview / 03 projetos
-          </span>
-          <div className="relative pb-12 sm:pb-16">
-            <BrowserFrame
-              address="cafecomletras · projeto em desenvolvimento"
-              alt="Prévia ilustrativa do site do Café com Letras, projeto em desenvolvimento"
-              className="w-full sm:w-[86%]"
-            >
-              <CafePreview />
-            </BrowserFrame>
-            <BrowserFrame
-              address="clubedejazz · projeto em desenvolvimento"
-              alt="Prévia ilustrativa da experiência digital do Clube de Jazz, projeto em desenvolvimento"
-              shadow="cobalt"
-              className="absolute -bottom-2 right-0 hidden w-[54%] sm:block"
-            >
-              <JazzPreview compact />
-            </BrowserFrame>
-          </div>
-          <p className="tag-mono mt-4 text-ink-soft">
-            Café com Letras · Clube de Jazz · Clube OTOTOI
+        {/* Índice de projetos: conteúdo real no lugar de imagem decorativa */}
+        <nav aria-label="Índice de projetos" className="lg:col-span-4">
+          <p className="tag-mono flex items-baseline justify-between border-b-2 border-ink pb-3 text-ink-soft">
+            <span>Índice / Projetos</span>
+            <span aria-hidden="true" className="text-cobalt">
+              03
+            </span>
           </p>
-        </div>
+          <ul>
+            {projects.items.map((project, index) => (
+              <li key={project.id}>
+                <a
+                  href="#projetos"
+                  className="group flex min-h-12 items-baseline gap-4 border-b border-ink/25 py-4 no-underline"
+                >
+                  <span className="index-num text-cobalt">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-[1.05rem] font-bold tracking-tight text-ink transition-transform duration-[var(--hover-dur)] ease-[var(--ease-out)] group-hover:translate-x-1">
+                    {project.name}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="index-num ml-auto text-ink-soft/60 transition-transform duration-[var(--hover-dur)] ease-[var(--ease-out)] group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="tag-mono pt-4 text-[0.6rem] text-ink-soft">
+            Todos em desenvolvimento
+          </p>
+        </nav>
       </div>
 
       {/* Régua gráfica: detalhe de construção entre o hero e os projetos */}

@@ -12,7 +12,7 @@ export function Contact({ content, channel }: ContactProps) {
       aria-labelledby="contato-heading"
       className="scroll-mt-20 border-b-2 border-ink bg-cobalt"
     >
-      <div className="shell flex flex-col gap-8 py-20 sm:py-24">
+      <div className="shell flex flex-col gap-8 py-24 sm:py-32">
         <div className="flex items-baseline gap-4 border-b-2 border-paper/70 pb-3">
           <span className="index-num text-paper">06</span>
           <span className="tag-mono text-paper/85">Contato</span>
@@ -37,10 +37,15 @@ export function Contact({ content, channel }: ContactProps) {
             href={whatsappHref(channel)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-press tag-mono hard-shadow inline-flex min-h-12 items-center justify-center gap-3 border-2 border-ink bg-paper px-8 py-4 text-[0.82rem] text-ink no-underline"
+            className="group tag-mono inline-flex min-h-12 items-center justify-center gap-3 bg-paper px-8 py-4 text-[0.82rem] text-ink no-underline transition-colors duration-[var(--hover-dur)] ease-[var(--ease-out)] hover:bg-ink hover:text-paper"
           >
             {content.ctaLabel}
-            <span aria-hidden="true">→</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-[var(--hover-dur)] ease-[var(--ease-out)] group-hover:translate-x-1"
+            >
+              →
+            </span>
           </a>
         </div>
       </div>

@@ -12,7 +12,7 @@ export function Process({ content }: ProcessProps) {
       aria-labelledby="processo-heading"
       className="scroll-mt-20 border-b-2 border-ink bg-sand"
     >
-      <div className="shell flex flex-col gap-12 py-16 sm:py-20">
+      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
         <SectionHead
           index="03"
           label="Processo"

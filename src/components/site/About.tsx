@@ -14,7 +14,7 @@ export function About({ content, maker }: AboutProps) {
       aria-labelledby="sobre-heading"
       className="scroll-mt-20 border-b-2 border-ink"
     >
-      <div className="shell flex flex-col gap-12 py-16 sm:py-20">
+      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
         <SectionHead
           index="04"
           label="Sobre"

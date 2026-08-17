@@ -24,8 +24,9 @@
   --radius-lg: 0;
 
   /* Escala fluida */
-  --text-hero: clamp(2.45rem, 1.1rem + 5.4vw, 4.9rem);
-  --text-h2: clamp(1.9rem, 1.15rem + 2.9vw, 3.1rem);
+  --text-hero: clamp(2.7rem, 0.9rem + 5.5vw, 5.4rem);
+  --text-name: clamp(2rem, 1.1rem + 3.8vw, 4.2rem);
+  --text-h2: clamp(1.9rem, 1.1rem + 3.1vw, 3.4rem);
   --text-h3: clamp(1.3rem, 1.05rem + 1.1vw, 1.8rem);
   --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
 }
@@ -132,34 +133,18 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Bloco com sombra dura deslocada — assinatura do sistema */
-@utility hard-shadow {
-  box-shadow: 5px 5px 0 0 var(--color-ink);
+/* Sublinhado animado para links de navegação e texto */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 260ms var(--ease-out);
 }
 
-@utility hard-shadow-cobalt {
-  box-shadow: 5px 5px 0 0 var(--color-cobalt);
-}
-
-/* Botões com microinteração de pressão física */
-.btn-press {
-  transition:
-    transform var(--press-dur) var(--ease-out),
-    box-shadow var(--press-dur) var(--ease-out),
-    background-color var(--hover-dur) var(--ease-out),
-    color var(--hover-dur) var(--ease-out);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .btn-press:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 0 var(--shadow-ink, var(--color-ink));
-  }
-
-  .btn-press:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 0 var(--shadow-ink, var(--color-ink));
-  }
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1.5px;
 }
 
 /* Revelação suave na rolagem (desligada com prefers-reduced-motion) */
