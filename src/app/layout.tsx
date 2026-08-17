@@ -1,28 +1,32 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Sans } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 import type { ReactNode } from "react";
-import { offer } from "@/content/offer";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const archivo = Archivo({
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["SOFT", "WONK"],
-  style: ["normal", "italic"],
+  variable: "--font-archivo",
+  axes: ["wdth"],
 });
 
-const plex = IBM_Plex_Sans({
+const instrument = Instrument_Sans({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-plex",
+  variable: "--font-text",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
-  title: `${offer.promise.result.replace(/\.$/, "")} · ${offer.maker.name}`,
-  description: offer.promise.howOrForWhom,
+  title: "Vinicius William — Desenvolvedor de sites e sistemas",
+  description:
+    "Portfólio de Vinicius William, desenvolvedor de sites e sistemas em Belo Horizonte. Projetos sob medida com React, TypeScript e Node.js — de sites institucionais a sistemas e integrações.",
   robots: { index: true, follow: true },
 };
 
@@ -34,16 +38,16 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${fraunces.variable} ${plex.variable}`}
+      className={`${archivo.variable} ${instrument.variable} ${plexMono.variable}`}
     >
-      <body className="font-sans">
+      <body>
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
+          className="tag-mono sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border-2 focus:border-ink focus:bg-cobalt focus:px-4 focus:py-3 focus:text-paper"
         >
           Ir para o conteúdo
         </a>
-        <main id="conteudo">{children}</main>
+        {children}
       </body>
     </html>
   );

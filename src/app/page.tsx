@@ -1,54 +1,41 @@
-import { BenefitsBeat } from "@/components/landing/BenefitsBeat";
-import { CapacityBeat } from "@/components/landing/CapacityBeat";
-import { CasesBeat } from "@/components/landing/CasesBeat";
-import { CloseBeat } from "@/components/landing/CloseBeat";
-import { FooterBeat } from "@/components/landing/FooterBeat";
-import { GuaranteeBeat } from "@/components/landing/GuaranteeBeat";
-import { Hero } from "@/components/landing/Hero";
-import { ObjectionsBeat } from "@/components/landing/ObjectionsBeat";
-import { PainBeat } from "@/components/landing/PainBeat";
-import { ProcessBeat } from "@/components/landing/ProcessBeat";
-import { ProofBeat } from "@/components/landing/ProofBeat";
-import { Reveal } from "@/components/landing/Reveal";
-import { offer } from "@/content/offer";
-import { primaryWhatsApp } from "@/domain";
+import { About } from "@/components/site/About";
+import { Contact } from "@/components/site/Contact";
+import { Faq } from "@/components/site/Faq";
+import { Footer } from "@/components/site/Footer";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Process } from "@/components/site/Process";
+import { Projects } from "@/components/site/Projects";
+import { Reveal } from "@/components/site/Reveal";
+import { Services } from "@/components/site/Services";
+import { site } from "@/content/site";
 
 export default function HomePage() {
-  const channel = primaryWhatsApp(offer.contact);
-
   return (
     <>
-      <Hero offer={offer} channel={channel} />
-      <Reveal>
-        <PainBeat pain={offer.pain} />
-      </Reveal>
-      <Reveal>
-        <ProofBeat proofs={offer.proofs} />
-      </Reveal>
-      <Reveal>
-        <CasesBeat cases={offer.cases} channel={channel} />
-      </Reveal>
-      <Reveal>
-        <BenefitsBeat benefits={offer.benefits} />
-      </Reveal>
-      <Reveal>
-        <ProcessBeat steps={offer.steps} />
-      </Reveal>
-      <Reveal>
-        <ObjectionsBeat objections={offer.objections} />
-      </Reveal>
-      <Reveal>
-        <GuaranteeBeat guarantee={offer.guarantee} />
-      </Reveal>
-      <Reveal>
-        <CapacityBeat capacity={offer.capacity} />
-      </Reveal>
-      <Reveal>
-        <CloseBeat offer={offer} channel={channel} />
-      </Reveal>
-      <Reveal>
-        <FooterBeat offer={offer} channel={channel} />
-      </Reveal>
+      <Header name={site.maker.name} channel={site.whatsapp} />
+      <main id="conteudo">
+        <Hero content={site} />
+        <Reveal>
+          <Projects content={site.projects} />
+        </Reveal>
+        <Reveal>
+          <Services content={site.services} />
+        </Reveal>
+        <Reveal>
+          <Process content={site.process} />
+        </Reveal>
+        <Reveal>
+          <About content={site.about} maker={site.maker} />
+        </Reveal>
+        <Reveal>
+          <Faq items={site.faq} />
+        </Reveal>
+        <Reveal>
+          <Contact content={site.contact} channel={site.whatsapp} />
+        </Reveal>
+      </main>
+      <Footer maker={site.maker} />
     </>
   );
 }
