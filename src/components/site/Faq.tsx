@@ -10,34 +10,33 @@ export function Faq({ items }: FaqProps) {
     <section
       id="perguntas"
       aria-labelledby="perguntas-heading"
-      className="scroll-mt-20 border-b-2 border-ink"
+      className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell grid grid-cols-1 gap-10 py-20 sm:py-28 lg:grid-cols-12">
+      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
         <SectionHead
           index="05"
-          label="Perguntas frequentes"
+          label="perguntas frequentes"
           title="Antes de chamar, talvez você queira saber."
           headingId="perguntas-heading"
-          className="lg:col-span-5"
         />
 
-        <div className="flex flex-col self-start lg:col-span-6 lg:col-start-7">
+        <div className="flex flex-col">
           {items.map((item) => (
             <details
               key={item.id}
               name="faq"
-              className="group border-b-2 border-ink first:border-t-2"
+              className="group border-b border-border last:border-b-0"
             >
-              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[1.05rem] font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[1.0625rem] font-medium marker:content-none [&::-webkit-details-marker]:hidden">
                 <span>{item.question}</span>
                 <span
                   aria-hidden="true"
-                  className="font-display text-2xl leading-none text-cobalt transition-transform duration-[var(--hover-dur)] ease-[var(--ease-out)] group-open:rotate-45"
+                  className="font-mono text-lg leading-none text-muted-foreground transition-transform duration-[var(--panel-dur)] ease-[var(--enter-ease)] group-open:rotate-45"
                 >
                   +
                 </span>
               </summary>
-              <p className="max-w-[56ch] pb-5 text-[0.98rem] leading-relaxed text-ink-soft">
+              <p className="max-w-[56ch] pb-5 leading-relaxed text-muted-foreground">
                 {item.answer}
               </p>
             </details>

@@ -12,63 +12,50 @@ export function About({ content, maker }: AboutProps) {
     <section
       id="sobre"
       aria-labelledby="sobre-heading"
-      className="scroll-mt-20 border-b-2 border-ink"
+      className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
+      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
         <SectionHead
           index="04"
-          label="Sobre"
+          label="sobre"
           title={content.title}
           headingId="sobre-heading"
         />
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="flex flex-col gap-5 lg:col-span-7 lg:col-start-6 lg:row-start-1">
-            {content.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)} className="max-w-[62ch] text-ink-soft">
-                {paragraph}
-              </p>
-            ))}
+        <figure className="flex items-center gap-4" translate="no">
+          <Image
+            src={maker.photo.src}
+            alt={maker.photo.alt}
+            width={56}
+            height={56}
+            className="size-14 rounded-full border border-border object-cover object-[center_30%]"
+          />
+          <figcaption className="flex flex-col">
+            <span className="text-[0.9375rem] font-medium">{maker.name}</span>
+            <span className="readout">{maker.location}</span>
+          </figcaption>
+        </figure>
 
-            <div className="mt-2 flex flex-col gap-2 border-t-2 border-ink pt-4">
-              <span className="tag-mono text-ink-soft">Stack principal</span>
-              <ul className="flex flex-wrap gap-x-4 gap-y-1">
-                {content.technologies.map((tech) => (
-                  <li key={tech} className="index-num text-ink">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <figure className="max-w-[19rem] lg:col-span-4 lg:col-start-1 lg:row-start-1">
-            <div className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-2 -top-2 size-full border-2 border-cobalt"
-              />
-              <div className="grain relative aspect-[3/4] overflow-hidden border-2 border-ink bg-sand">
-                <Image
-                  src={maker.photo.src}
-                  alt={maker.photo.alt}
-                  fill
-                  quality={88}
-                  sizes="(max-width: 1024px) 19rem, 24rem"
-                  className="object-cover object-[center_14%] contrast-[1.05] saturate-[0.88]"
-                />
-              </div>
-            </div>
-            <figcaption
-              className="tag-mono mt-3 flex items-center justify-between text-ink"
-              translate="no"
+        <div className="flex max-w-[62ch] flex-col gap-5">
+          {content.paragraphs.map((paragraph) => (
+            <p
+              key={paragraph.slice(0, 24)}
+              className="leading-relaxed text-muted-foreground"
             >
-              <span>{maker.name}</span>
-              <span aria-hidden="true" className="text-ink-soft">
-                BH · MG
-              </span>
-            </figcaption>
-          </figure>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-3 border-t border-border pt-6">
+          <span className="readout">stack principal</span>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+            {content.technologies.map((tech) => (
+              <li key={tech} className="readout text-foreground">
+                {tech}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

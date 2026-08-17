@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const archivo = Archivo({
+const geist = Geist({
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  variable: "--font-archivo",
-  axes: ["wdth"],
+  variable: "--font-geist",
 });
 
-const instrument = Instrument_Sans({
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  variable: "--font-text",
-});
-
-const plexMono = IBM_Plex_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500"],
   display: "swap",
-  variable: "--font-plex-mono",
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -36,14 +29,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${archivo.variable} ${instrument.variable} ${plexMono.variable}`}
-    >
-      <body>
+    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`}>
+      <body className={geist.className}>
         <a
           href="#conteudo"
-          className="tag-mono sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border-2 focus:border-ink focus:bg-cobalt focus:px-4 focus:py-3 focus:text-paper"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground"
         >
           Ir para o conteúdo
         </a>

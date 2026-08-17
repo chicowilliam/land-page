@@ -10,12 +10,12 @@ export function Process({ content }: ProcessProps) {
     <section
       id="processo"
       aria-labelledby="processo-heading"
-      className="scroll-mt-20 border-b-2 border-ink bg-sand"
+      className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
+      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
         <SectionHead
           index="03"
-          label="Processo"
+          label="processo"
           title={content.title}
           headingId="processo-heading"
         />
@@ -24,23 +24,22 @@ export function Process({ content }: ProcessProps) {
           {content.steps.map((step) => (
             <li
               key={step.order}
-              className="grid grid-cols-1 gap-2 border-t-2 border-ink py-6 last:border-b-2 sm:grid-cols-12 sm:items-baseline sm:gap-6"
+              className="flex gap-5 border-b border-border py-5 last:border-b-0"
             >
-              <span
-                aria-hidden="true"
-                className="font-display text-[1.6rem] font-bold leading-none text-cobalt [font-variation-settings:'wdth'_122] sm:col-span-2"
-              >
+              <span className="readout pt-1" aria-hidden="true">
                 {String(step.order).padStart(2, "0")}
               </span>
-              <h3 className="text-[1.2rem] sm:col-span-4">{step.name}</h3>
-              <p className="max-w-[52ch] text-[0.98rem] text-ink-soft sm:col-span-6">
-                {step.description}
-              </p>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-[1.0625rem] font-medium">{step.name}</h3>
+                <p className="max-w-[54ch] text-[0.9375rem] leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
+              </div>
             </li>
           ))}
         </ol>
 
-        <p className="tag-mono max-w-[62ch] border-l-4 border-cobalt bg-paper px-4 py-3 normal-case tracking-normal text-[0.85rem] leading-relaxed text-ink-soft">
+        <p className="max-w-[58ch] border-l-2 border-primary pl-4 text-[0.9375rem] leading-relaxed text-muted-foreground">
           {content.note}
         </p>
       </div>

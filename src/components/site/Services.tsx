@@ -10,31 +10,24 @@ export function Services({ content }: ServicesProps) {
     <section
       id="servicos"
       aria-labelledby="servicos-heading"
-      className="scroll-mt-20 border-b-2 border-ink"
+      className="beat scroll-mt-16 border-b border-border"
     >
-      <div className="shell flex flex-col gap-14 py-20 sm:py-28">
+      <div className="shell flex flex-col gap-10 py-16 sm:py-20">
         <SectionHead
           index="02"
-          label="O que eu desenvolvo"
+          label="o que eu desenvolvo"
           title={content.title}
           headingId="servicos-heading"
         />
 
-        {/* Matriz editorial: células com bordas compartilhadas, sem cards soltos */}
-        <ul className="grid grid-cols-1 border-2 border-ink bg-paper sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
           {content.items.map((service, index) => (
-            <li
-              key={service.id}
-              className="group flex flex-col gap-3 border-ink p-6 transition-colors duration-[var(--hover-dur)] not-last:border-b hover:bg-sand sm:p-8 sm:not-last:border-b-0 sm:nth-[-n+2]:border-b sm:odd:border-r"
-            >
-              <span
-                aria-hidden="true"
-                className="font-display text-[2rem] font-bold leading-none text-cobalt [font-variation-settings:'wdth'_122]"
-              >
+            <li key={service.id} className="flex flex-col gap-2">
+              <span className="readout" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-[1.2rem]">{service.name}</h3>
-              <p className="max-w-[40ch] text-[0.98rem] text-ink-soft">
+              <h3 className="text-[1.125rem] font-medium">{service.name}</h3>
+              <p className="max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
             </li>
