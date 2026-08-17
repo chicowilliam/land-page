@@ -1,37 +1,23 @@
 # Voz
 
-Direto, concreto, brasileiro. Fala como quem fecha no WhatsApp, não como agência.
+Direto, concreto, brasileiro. Fala como um profissional apresentando o próprio trabalho, não como agência nem como página de vendas.
 
 ## Personalidade
 
-- Segunda pessoa. O Visitante é o centro; o site é o guia.
+- Primeira pessoa quando Vinicius fala do trabalho; segunda pessoa quando orienta o Visitante.
 - Frase curta. Uma ideia por frase.
-- Nomeia a Dor com as palavras dele: site lento, menu inútil, WhatsApp escondido.
-- Prova com fato. Sem adjetivo que a página ainda não ganhou.
-
-## Tom por estado
-
-| Estado do Visitante | Tom |
-|---|---|
-| Lendo o hero | Seguro, específico, sem pitch de cargo |
-| Reconhecendo a Dor | Franco, sem humilhar |
-| Preenchendo o form / erro | Calmo, diz o que faltou e como corrigir |
-| Oferta cheia | Honesto. Fila, não teatro de escassez |
+- Confiança por evidência: mostrar projetos e processo, não prometer resultado.
+- Sem pressão: a página convida para uma conversa, não empurra um fechamento.
 
 ## Não usar
 
-Palavras de brochure: robusto, inovador, cutting-edge, seamless, powerful, showcase, unlock, “simples” como promessa. Travessão em. Cargo no lugar de resultado (“Desenvolvedor Full Stack”).
+- Palavras de brochure: robusto, inovador, cutting-edge, seamless, powerful, unlock.
+- Promessas de venda garantida, métricas não auditáveis, depoimentos sem fonte.
+- Escassez de qualquer tipo ("vagas", "só este mês").
+- Jargão técnico na frente do benefício; a stack aparece discreta, na seção Sobre.
 
 ## CTA
 
-- Primário: Chamar no WhatsApp
-- Secundário: Enviar pedido de conversa
-- Nunca: Saiba mais, Fale comigo, Get started, Submit
-
-## Hero (escolha)
-
-- **A (no ar):** “Sites que vendem mais, não só bonitos.” Resultado vs. enfeite. Espelha o que o tráfego já sente.
-- B: “Seu site não precisa ser cartão de visitas. Precisa trazer conversa.” Mais How, menos contraste.
-- C: “O Instagram trabalha. O site, não.” Aguda demais para quem ainda não admite o problema.
-
-Fica A.
+- Primário: Conversar com o Vinicius (WhatsApp, mensagem pré-preenchida)
+- Secundários: Ver projetos, Conversar no WhatsApp, Conversar (header)
+- Nunca: Saiba mais, Get started, Submit, Chamar agora

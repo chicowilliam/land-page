@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "test": "node --import tsx --test src/domain/capacity.test.ts src/domain/whatsapp.test.ts src/domain/lead.test.ts"
+    "test": "node --import tsx --test src/domain/whatsapp.test.ts"
   },
   "dependencies": {
     "next": "^16.3.1",
