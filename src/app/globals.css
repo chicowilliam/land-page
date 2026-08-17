@@ -39,6 +39,7 @@
     background-color: var(--color-background);
     -webkit-tap-highlight-color: color-mix(in oklab, var(--color-primary) 14%, transparent);
     scrollbar-width: thin;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -55,6 +56,7 @@
     font-kerning: normal;
     text-wrap: pretty;
     touch-action: manipulation;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -89,16 +91,19 @@
   }
 }
 
-/* eixo da página: estreito no mobile, amplo no desktop (ritmo Linear) */
+/* eixo da página: mobile compacto, desktop usa a largura da tela */
 @utility shell {
   margin-inline: auto;
   width: 100%;
-  max-width: 42rem;
-  padding-inline: 1.5rem;
+  max-width: none;
+  padding-inline: 1.25rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 1.75rem;
+  }
 
   @media (width >= 64rem) {
-    max-width: 72rem;
-    padding-inline: 2.5rem;
+    padding-inline: clamp(2rem, 3.2vw, 4.5rem);
   }
 }
 
@@ -156,9 +161,13 @@
   position: fixed;
   inset: 0;
   z-index: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  contain: strict;
   color: var(--color-border);
-  opacity: 0.7;
-  mask-image: radial-gradient(ellipse 90% 80% at 88% 12%, #000 10%, transparent 72%);
+  opacity: 0.55;
+  mask-image: radial-gradient(ellipse 80% 70% at 92% 18%, #000 8%, transparent 70%);
 }
 
 .plan-path {

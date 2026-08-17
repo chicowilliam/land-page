@@ -20,7 +20,7 @@ export function Services({ content }: ServicesProps) {
           headingId="servicos-heading"
         />
 
-        <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
+        <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-10">
           {content.items.map((service, index) => (
             <li key={service.id} className="flex flex-col gap-2">
               <span className="readout" aria-hidden="true">
@@ -29,7 +29,7 @@ export function Services({ content }: ServicesProps) {
               <h3 className="text-[1.125rem] font-medium lg:text-[1.25rem]">
                 {service.name}
               </h3>
-              <p className="max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted-foreground">
+              <p className="max-w-[44ch] text-[0.9375rem] leading-relaxed text-muted-foreground xl:max-w-none">
                 {service.description}
               </p>
             </li>

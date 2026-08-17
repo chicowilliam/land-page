@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <BackgroundPlan />
       <Header name={site.maker.name} channel={site.whatsapp} />
-      <main id="conteudo" className="relative z-10">
+      <main id="conteudo" className="relative z-10 overflow-x-clip">
         <Hero content={site} />
         <Reveal>
           <Projects content={site.projects} />

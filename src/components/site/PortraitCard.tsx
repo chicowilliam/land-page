@@ -42,7 +42,7 @@ export function PortraitCard({
         onClick={() => setOpen(true)}
         className={cn(
           "portrait-card group/card w-full text-left",
-          size === "hero" ? "max-w-[22rem] lg:max-w-none" : "max-w-[18rem]",
+          size === "about" && "max-w-[22rem]",
         )}
         aria-haspopup="dialog"
         aria-expanded={open}
@@ -65,8 +65,8 @@ export function PortraitCard({
             quality={90}
             sizes={
               size === "hero"
-                ? "(max-width: 1024px) 22rem, 28rem"
-                : "(max-width: 1024px) 18rem, 20rem"
+                ? "(max-width: 1024px) 100vw, 32rem"
+                : "(max-width: 1024px) 22rem, 22rem"
             }
             className="portrait-photo object-cover object-[center_18%]"
           />

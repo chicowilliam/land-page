@@ -19,7 +19,7 @@ export function Contact({ content, channel }: ContactProps) {
 
           <h2
             id="contato-heading"
-            className="max-w-[18ch] text-[clamp(2rem,4.4vw,3.35rem)] tracking-[-0.03em]"
+            className="max-w-[22ch] text-[clamp(2rem,4.4vw,3.6rem)] tracking-[-0.03em]"
           >
             {content.title}
           </h2>

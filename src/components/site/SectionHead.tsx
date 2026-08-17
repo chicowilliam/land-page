@@ -33,13 +33,13 @@ export function SectionHead({
         </p>
         <h2
           id={headingId}
-          className="max-w-[24ch] text-[1.75rem] sm:text-[2rem] lg:text-[2.35rem]"
+          className="max-w-[28ch] text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem]"
         >
           {title}
         </h2>
       </div>
       {aside ? (
-        <div className="max-w-[50ch] leading-relaxed text-muted-foreground lg:col-span-5">
+        <div className="leading-relaxed text-muted-foreground lg:col-span-5 lg:max-w-none">
           {aside}
         </div>
       ) : null}

@@ -1,4 +1,4 @@
-/** Planta de um café: o universo do Maker, não um blob genérico. */
+/** Planta de um café: decoração fora do fluxo, sem criar scroll. */
 export function BackgroundPlan() {
   return (
     <div className="site-plan" aria-hidden="true">
@@ -6,8 +6,9 @@ export function BackgroundPlan() {
         viewBox="0 0 1200 800"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full"
+        overflow="hidden"
         preserveAspectRatio="xMaxYMin slice"
+        className="absolute inset-0 h-full w-full max-h-full max-w-full"
       >
         <g stroke="currentColor" strokeWidth="1.2" className="text-border">
           <rect x="80" y="70" width="1040" height="660" rx="8" />

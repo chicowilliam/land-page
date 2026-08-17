@@ -22,7 +22,7 @@ function ProjectEntry({ project, index }: { project: Project; index: string }) {
         <p className="readout">{project.tag}</p>
       </div>
       <div className="flex flex-col gap-4 lg:col-span-6 lg:col-start-7">
-        <p className="max-w-[54ch] leading-relaxed text-muted-foreground">
+        <p className="max-w-[62ch] leading-relaxed text-muted-foreground lg:max-w-none">
           {project.description}
         </p>
         <p className="readout flex items-center gap-2.5">

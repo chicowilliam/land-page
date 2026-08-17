@@ -17,15 +17,15 @@ export function Hero({ content }: HeroProps) {
     <section
       id="topo"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden border-b border-border"
+      className="relative overflow-x-clip border-b border-border"
     >
       <m.div
         initial="hidden"
         animate="visible"
         variants={stagger}
-        className="shell relative grid grid-cols-1 gap-12 py-16 sm:py-24 lg:grid-cols-12 lg:items-center lg:gap-16 lg:py-28 lg:min-h-[calc(100svh-4.5rem)]"
+        className="shell relative grid grid-cols-1 gap-10 py-14 sm:py-20 lg:grid-cols-12 lg:items-start lg:gap-10 lg:py-24 xl:gap-12"
       >
-        <div className="flex flex-col gap-7 lg:col-span-6 lg:gap-8">
+        <div className="flex flex-col gap-6 lg:col-span-5 lg:gap-7 xl:col-span-5">
           <m.p variants={fadeInUp} className="readout">
             {hero.label}
           </m.p>
@@ -33,14 +33,14 @@ export function Hero({ content }: HeroProps) {
           <m.h1
             id="hero-heading"
             variants={fadeInUp}
-            className="max-w-[16ch] text-[clamp(2.25rem,5.2vw,4rem)] tracking-[-0.035em]"
+            className="max-w-[22ch] text-[clamp(2.2rem,4.6vw,4.35rem)] tracking-[-0.035em]"
           >
             {hero.title}
           </m.h1>
 
           <m.p
             variants={fadeInUp}
-            className="max-w-[46ch] text-[1.125rem] leading-relaxed text-muted-foreground"
+            className="max-w-[54ch] text-[1.125rem] leading-relaxed text-muted-foreground"
           >
             {hero.text}
           </m.p>
@@ -62,42 +62,43 @@ export function Hero({ content }: HeroProps) {
           </m.p>
         </div>
 
-        <div className="flex flex-col gap-5 lg:col-span-6 lg:col-start-7">
-          <m.div variants={fadeInUp} className="mx-auto w-full max-w-[22rem] lg:mx-0 lg:max-w-[26rem]">
-            <PortraitCard maker={maker} channel={whatsapp} size="hero" />
-          </m.div>
+        <m.div
+          variants={fadeInUp}
+          className="w-full lg:col-span-4 lg:col-start-6"
+        >
+          <PortraitCard maker={maker} channel={whatsapp} size="hero" />
+        </m.div>
 
-          <m.nav
-            variants={fadeInUp}
-            aria-label="Índice de projetos"
-            className="rounded-xl border border-border bg-card/80 p-5 backdrop-blur-sm"
-          >
-            <p className="readout pb-3">índice / projetos</p>
-            <ul>
-              {projects.items.map((project, index) => (
-                <li key={project.id}>
-                  <a
-                    href="#projetos"
-                    className="group flex min-h-12 items-baseline gap-4 border-b border-border py-3.5 no-underline last:border-b-0"
+        <m.nav
+          variants={fadeInUp}
+          aria-label="Índice de projetos"
+          className="rounded-xl border border-border bg-card/80 p-5 backdrop-blur-sm lg:col-span-3 lg:col-start-10"
+        >
+          <p className="readout pb-3">índice / projetos</p>
+          <ul>
+            {projects.items.map((project, index) => (
+              <li key={project.id}>
+                <a
+                  href="#projetos"
+                  className="group flex min-h-12 items-baseline gap-3 border-b border-border py-3.5 no-underline last:border-b-0"
+                >
+                  <span className="readout" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[1.0625rem] font-medium transition-transform duration-[var(--hover-dur)] ease-[var(--enter-ease)] group-hover:translate-x-1">
+                    {project.name}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="readout ml-auto transition-transform duration-[var(--hover-dur)] ease-[var(--enter-ease)] group-hover:translate-x-1"
                   >
-                    <span className="readout" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[1.0625rem] font-medium transition-transform duration-[var(--hover-dur)] ease-[var(--enter-ease)] group-hover:translate-x-1">
-                      {project.name}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="readout ml-auto transition-transform duration-[var(--hover-dur)] ease-[var(--enter-ease)] group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </m.nav>
-        </div>
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </m.nav>
       </m.div>
     </section>
   );
